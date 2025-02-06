@@ -1,2 +1,2 @@
-# DM-interpolator
-python package to interpolate on a grid of DUSTY+MARCS models
+# py-dusty
+python package to with various tool to analyze DUSTY models
