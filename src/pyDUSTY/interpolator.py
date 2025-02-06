@@ -30,7 +30,7 @@ class summary_reader():
 
 
 # light curve interpolator
-class LC_interp():
+class DM_interpolator():
     def __init__(self, Teff, logg, logL, model_dir, M=5.0, t=5):
         self.Teff = Teff # array containing the effective temperature in K
         self.logg = logg # array containing the log g in cm
@@ -61,7 +61,7 @@ class LC_interp():
         # get interpolation data
         interp_data = []
         for T, logg in self.T_logg:
-            r = summary_reader(T, logg, model=self.model, M=self.M, t=self.t)
+            r = summary_reader(T, logg, model_dir=self.model_dir, M=self.M, t=self.t)
             interp_data.append(r.get_data())
         interp_data = np.array(interp_data)
 
