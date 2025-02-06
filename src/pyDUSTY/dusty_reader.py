@@ -10,6 +10,14 @@ pc_to_cm = (1*u.pc).to('cm').value
 
 class dusty_reader():
     def __init__(self, filename, luminosity=None, distance=10):
+        """
+        Initializes the DustyReader with the given filename, luminosity, and distance.
+        Args:
+            filename (str): The path to the file to be read (.out file).
+            luminosity (float, optional): The luminosity in solar units (Lsun). Defaults to None.
+            distance (float, optional): The distance in parsecs (pc). Defaults to 10.
+        """
+        
         self.filename = filename
         self.model_name = os.path.basename(filename).replace('.out', '')
         if luminosity is not None:
