@@ -209,9 +209,9 @@ class DM_interpolator():
         interp_vals = interp_vals.reshape(len(self.Teff), -1, 13)
 
         # scale everything to the correct luminosity
-        # r1 = r1 * sqrt(L / 1e4)  (DUSTY computes r1 for L = 1e4 Lsun)
+        # r1 = r1 * sqrt(L / 1e0)  (DUSTY computes r1 for L = 1e4 Lsun, but summary files are for L = 1 Lsun)
         i_r1 = self.data_header.index('r1')
-        interp_vals[:, :, i_r1] *= np.sqrt(self.L[:, None] / 1e4)
+        interp_vals[:, :, i_r1] *= np.sqrt(self.L[:, None] / 1e0)
 
         # mags = mags - 2.5 * log10(L)  (magnitudes are for L = 1 Lsun)
         for qty in ['36', '45', 'J', 'H', 'Ks', 'U', 'B', 'V', 'R', 'I']:
